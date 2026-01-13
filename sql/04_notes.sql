@@ -1,0 +1,13 @@
+-- 04_notes.sql
+-- ทางเลือกสำหรับ SQL Server เวอร์ชันเก่าที่ไม่มี STRING_AGG (ใช้ FOR XML PATH)
+
+-- SELECT
+--     ur.EmpID,
+--     STUFF((
+--         SELECT ', ' + ur2.UserRight
+--         FROM dbo.UserRight ur2
+--         WHERE ur2.EmpID = ur.EmpID
+--         FOR XML PATH(''), TYPE
+--     ).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS UserRights
+-- FROM dbo.UserRight ur
+-- GROUP BY ur.EmpID;
