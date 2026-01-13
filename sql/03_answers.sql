@@ -2,7 +2,6 @@
 -- รวมคำตอบ SQL ตามข้อในเอกสาร
 
 /* 1.3 Combine 2 rows into 1 row (EmpID เดียวกัน รวม UserRight เป็นบรรทัดเดียว)
-   SQL Server 2017+ ใช้ STRING_AGG
 */
 SELECT
     EmpID,
@@ -15,10 +14,8 @@ SELECT COUNT(*) AS TotalPersonInQMS
 FROM dbo.Employee
 WHERE Department = 'QMS';
 
-/* 1.5 Fetch records having matching data in some fields of Work table, Bonus Table, Title Table
-   ตัวอย่าง JOIN มาตรฐาน (ปรับชื่อ field ให้ตรง schema จริงได้)
-*/
--- SELECT *
--- FROM Work w
--- INNER JOIN Bonus b ON w.EmpID = b.EmpID
--- INNER JOIN Title t ON w.TitleID = t.TitleID;
+/* 1.5 Fetch records having matching data in some fields of Work table, Bonus Table, Title Table*/
+ SELECT *
+ FROM Work w
+ INNER JOIN Bonus b ON w.EmpID = b.EmpID
+ INNER JOIN Title t ON w.TitleID = t.TitleID;
